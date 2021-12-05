@@ -1,27 +1,56 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { ExampleContainer } from '@/Containers'
-import { TabParamList } from '@/types/paramLists'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { AboutContainer, HomeContainer } from '@/Containers';
+import SettingsContainer from '@/Containers/SettingsContainer';
+import { TabParamList } from '@/types';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import HomeIcon from 'react-native-vector-icons/AntDesign';
+import SetIcon from 'react-native-vector-icons/Feather';
+import InfoIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Tab = createBottomTabNavigator<TabParamList>()
+const Tab = createBottomTabNavigator<TabParamList>();
 
 // @refresh reset
 const MainNavigator = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={ExampleContainer}
-        options={() => ({
-          tabBarIcon: ({ color, focused, size }) => (
-            <Icon name="rocket" size={30} color={color} />
-          ),
-        })}
-      />
-      <Tab.Screen name="Settings" component={ExampleContainer} />
-    </Tab.Navigator>
-  )
-}
+    return (
+        <Tab.Navigator
+            screenOptions={({ navigation, route }) => ({
+                tabBarLabel: () => null,
+                header: () => null,
+            })}
+        >
+            <Tab.Screen
+                name="Home"
+                component={HomeContainer}
+                options={() => ({
+                    tabBarIcon: ({ color }) => (
+                        <HomeIcon name="home" size={30} color={color} />
+                    ),
+                })}
+            />
+            <Tab.Screen
+                name="Settings"
+                component={SettingsContainer}
+                options={() => ({
+                    tabBarIcon: ({ color }) => (
+                        <SetIcon name="settings" size={30} color={color} />
+                    ),
+                })}
+            />
+            <Tab.Screen
+                name="About"
+                component={AboutContainer}
+                options={() => ({
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <InfoIcon
+                            name="information-outline"
+                            size={size}
+                            color={color}
+                        />
+                    ),
+                })}
+            />
+        </Tab.Navigator>
+    );
+};
 
-export default MainNavigator
+export default MainNavigator;

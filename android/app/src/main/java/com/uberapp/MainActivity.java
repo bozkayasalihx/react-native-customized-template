@@ -4,6 +4,10 @@ import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import com.rnfs.RNFSPackage;  // <--- import
+import com.facebook.react.bridge.JSIModulePackage; // <- add
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
+
 
 public class MainActivity extends ReactActivity {
 
@@ -29,5 +33,16 @@ public class MainActivity extends ReactActivity {
       Intent intent = new Intent("onConfigurationChanged");
       intent.putExtra("newConfig", newConfig);
       sendBroadcast(intent);
+    }
+  @Override
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+        new MainReactPackage(), // <---- add comma
+        new RNFSPackage() // <---------- add package
+      );
+    }
+  @Override
+    protected JSIModulePackage getJSIModulePackage() {
+        return new ReanimatedJSIModulePackage(); // <- add
     }
 }

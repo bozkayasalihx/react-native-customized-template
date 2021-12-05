@@ -9,11 +9,11 @@ interface Props {
 }
 
 const Brand = ({ height, width, mode }: Props) => {
-  const { Layout, Images, Common, Colors } = useTheme()
+  const { Layout, Images } = useTheme()
 
   return (
     <View style={{ height, width }}>
-      <Image style={[]} source={Images.logo} resizeMode={mode} />
+      <Image style={[Layout.fill]} source={Images.logo} resizeMode={mode} />
     </View>
   )
 }
