@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import WebViewScreen from '@/Screens/WebView';
+import { AboutScreenProp, AboutStackParamList } from '@/types';
+import { createStackNavigator } from '@react-navigation/stack';
+import React, { FC, useEffect } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, {
     useAnimatedStyle,
     useSharedValue,
-    withTiming,
-    withSpring,
     withRepeat,
+    withSpring,
 } from 'react-native-reanimated';
 
 interface AboutContainerProps {}
-// const AboutStack = createStackNavigator<AboutStackParamList>();
+const AboutStack = createStackNavigator<AboutStackParamList>();
 
 const SIZE = 100.0;
 const AboutContainer: React.FC<AboutContainerProps> = ({}) => {
@@ -37,8 +39,23 @@ const AboutContainer: React.FC<AboutContainerProps> = ({}) => {
     }, []);
 
     return (
+        <AboutStack.Navigator initialRouteName="Animation">
+            <AboutStack.Screen name="Animation" component={Animation} />
+            <AboutStack.Screen name="WebView" component={WebViewScreen} />
+        </AboutStack.Navigator>
+    );
+};
+
+const Animation: FC<AboutScreenProp> = ({ navigation, route }) => {
+    return (
         <View style={styles.container}>
-            <Animated.View style={[styles.animated, reanimatedStyle]} />
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('WebView');
+                }}
+            >
+                <Animated.View style={styles.animated} />
+            </Pressable>
         </View>
     );
 };
