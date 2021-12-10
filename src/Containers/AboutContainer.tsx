@@ -1,5 +1,5 @@
 import WebViewScreen from '@/Screens/WebView';
-import { AboutScreenProp, AboutStackParamList } from '@/types';
+import { AboutStackParamList, AboutStackProps } from '@/types';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { FC, useEffect } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -39,19 +39,19 @@ const AboutContainer: React.FC<AboutContainerProps> = ({}) => {
     }, []);
 
     return (
-        <AboutStack.Navigator initialRouteName="Animation">
-            <AboutStack.Screen name="Animation" component={Animation} />
-            <AboutStack.Screen name="WebView" component={WebViewScreen} />
+        <AboutStack.Navigator initialRouteName="AboutPartOne">
+            <AboutStack.Screen name="AboutPartOne" component={Animation} />
+            <AboutStack.Screen name="AboutPartTwo" component={WebViewScreen} />
         </AboutStack.Navigator>
     );
 };
 
-const Animation: FC<AboutScreenProp> = ({ navigation, route }) => {
+const Animation: FC<AboutStackProps> = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             <Pressable
                 onPress={() => {
-                    navigation.navigate('WebView');
+                    navigation.navigate('AboutPartOne');
                 }}
             >
                 <Animated.View style={styles.animated} />

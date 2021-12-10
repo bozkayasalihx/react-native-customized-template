@@ -1,13 +1,13 @@
 import { AboutContainer, HomeContainer } from '@/Containers';
 import SettingsContainer from '@/Containers/SettingsContainer';
-import { TabParamList } from '@/types';
+import { RootTabParamList } from '@/types';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import HomeIcon from 'react-native-vector-icons/AntDesign';
 import SetIcon from 'react-native-vector-icons/Feather';
 import InfoIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Tab = createBottomTabNavigator<TabParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 // @refresh reset
 const MainNavigator = () => {

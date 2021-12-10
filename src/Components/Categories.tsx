@@ -16,7 +16,7 @@ const Categories: React.FC<CategoriesProps> = () => {
                 onPress={() => {
                     if (navigation.canGoBack()) {
                         // navigation.goBack()
-                        navigation.navigate('Root');
+                        navigation.navigate('Home');
                     }
                 }}
                 style={[Common.button.outline]}

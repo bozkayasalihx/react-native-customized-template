@@ -1,18 +1,13 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { HomeStackParamList, Props } from '@/types';
+import { Categories, Slides } from '@/Components';
 import { useTheme } from '@/Hooks';
-import { Categories } from '@/Components';
-import { Slides } from '@/Components';
-import { View } from 'react-native';
 import LoginScreen from '@/Screens/LoginScreen';
+import { HomeStackParamList, HomeStackProps } from '@/types';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
 const HomeStack = createStackNavigator<HomeStackParamList>();
-type HomeContainerProps = {
-    title: string;
-} & Props;
 
-const HomeContainer: React.FC<HomeContainerProps> = () => {
+const HomeContainer: React.FC<HomeStackProps> = () => {
     const { Colors, Layout, Common } = useTheme();
     return (
         <HomeStack.Navigator
@@ -20,9 +15,9 @@ const HomeContainer: React.FC<HomeContainerProps> = () => {
                 header: () => null,
             }}
         >
-            <HomeStack.Screen name="Slides" component={Slides} />
-            <HomeStack.Screen name="Categories" component={Categories} />
-            <HomeStack.Screen name="Login" component={LoginScreen} />
+            <HomeStack.Screen name="HomePartOne" component={Slides} />
+            <HomeStack.Screen name="HomePartTwo" component={Categories} />
+            <HomeStack.Screen name="HomePartThree" component={LoginScreen} />
         </HomeStack.Navigator>
     );
 };

@@ -4,40 +4,56 @@ import {
     NavigatorScreenParams,
 } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
+import { ReducerFromReducersMapObject } from 'redux';
 
 declare global {
     namespace ReactNavigation {
-        interface RootParamList extends RootStackParamList {}
+        interface RootParamList extends RootTabParamList {}
     }
 }
 
-export type RootStackParamList = {
-    Home: NavigatorScreenParams<RootTabParamList> | undefined;
-};
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-    StackScreenProps<RootStackParamList, Screen>;
-
-export type TabParamList = {
+export type RootTabParamList = {
     Home: undefined;
-    Settings: undefined;
+    Library: undefined;
     About: undefined;
+    Settings: undefined;
 };
-
-export type RootTabParamList = {};
 
 export type HomeStackParamList = {
-    Slides: undefined;
-    Categories: { title: string };
-    Login: undefined;
+    HomePartOne: undefined;
+    HomePartTwo: undefined;
+    HomePartThree: undefined;
 };
 
+export type SettingsStackParamList = {
+    SettingsPartOne: undefined;
+    SettingsPartTwo: undefined;
+    SettingsPartThree: undefined;
+};
+
+export type LoginParamList = {
+    Login: Record<string, any>;
+    SignIn: undefined;
+    SignUp: undefined;
+};
+
+export type LoginScreenProps = StackScreenProps<LoginParamList>;
 export type AboutStackParamList = {
-    Animation: undefined;
-    WebView: undefined;
+    AboutPartOne: undefined;
+    AboutPartTwo: undefined;
+    AboutPartThree: undefined;
 };
+export type HomeStackProps = CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, 'Home'>,
+    StackScreenProps<HomeStackParamList>
+>;
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
-    CompositeScreenProps<
-        BottomTabScreenProps<RootTabParamList, Screen>,
-        StackScreenProps<RootStackParamList>
-    >;
+export type SettingsStackProps = CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, 'Settings'>,
+    StackScreenProps<SettingsStackParamList>
+>;
+
+export type AboutStackProps = CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, 'About'>,
+    StackScreenProps<AboutStackParamList>
+>;

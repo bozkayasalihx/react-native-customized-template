@@ -1,17 +1,15 @@
-import { Props } from '@/types';
-import React, { useState } from 'react';
+import { LoginScreenProps } from '@/types';
+import analytics from '@react-native-firebase/analytics';
+import React, { FC, useState } from 'react';
 import {
     StyleSheet,
     Text,
-    View,
-    Image,
     TextInput,
-    Button,
     TouchableOpacity,
+    View,
 } from 'react-native';
-import analytics from '@react-native-firebase/analytics';
 
-export default function App({ navigation }: Props) {
+const App: FC<LoginScreenProps> = ({ navigation, route }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -43,7 +41,7 @@ export default function App({ navigation }: Props) {
             <TouchableOpacity
                 style={styles.loginBtn}
                 onPress={async () => {
-                    navigation.navigate('Categories', { title: 'google' });
+                    navigation.navigate('Login', { title: 'google' });
                     analytics().logEvent('test', {
                         id: '12313213',
                         item: 'mens grey t-shirt',
@@ -56,7 +54,9 @@ export default function App({ navigation }: Props) {
             </TouchableOpacity>
         </View>
     );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
     container: {
