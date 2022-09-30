@@ -1,4 +1,5 @@
 module.exports = {
+<<<<<<< ours
     bracketSameLine: false,
     singleQuote: true,
     trailingComma: 'all',
@@ -6,3 +7,11 @@ module.exports = {
     arrowParens: 'avoid',
     tabWidth: 4,
 }
+=======
+  arrowParens: 'avoid',
+  bracketSameLine: true,
+  bracketSpacing: false,
+  singleQuote: true,
+  trailingComma: 'all',
+};
+>>>>>>> theirs

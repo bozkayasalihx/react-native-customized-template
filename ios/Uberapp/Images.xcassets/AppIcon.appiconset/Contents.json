@@ -15,46 +15,69 @@
     {
       "filename" : "Icon-App-29x29@1x.png",
       "idiom" : "iphone",
+<<<<<<< ours
       "scale" : "1x",
+=======
+      "scale" : "2x",
+>>>>>>> theirs
       "size" : "29x29"
     },
     {
       "filename" : "Icon-App-29x29@2x.png",
       "idiom" : "iphone",
+<<<<<<< ours
       "scale" : "2x",
+=======
+      "scale" : "3x",
+>>>>>>> theirs
       "size" : "29x29"
     },
     {
       "filename" : "Icon-App-29x29@3x.png",
       "idiom" : "iphone",
+<<<<<<< ours
       "scale" : "3x",
       "size" : "29x29"
+=======
+      "scale" : "2x",
+      "size" : "40x40"
+>>>>>>> theirs
     },
     {
       "filename" : "Icon-App-40x40@2x.png",
       "idiom" : "iphone",
+<<<<<<< ours
       "scale" : "2x",
       "size" : "40x40"
     },
     {
       "filename" : "Icon-App-40x40@3x.png",
       "idiom" : "iphone",
+=======
+>>>>>>> theirs
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+<<<<<<< ours
       "filename" : "Icon-App-60x60@2x.png",
+=======
+>>>>>>> theirs
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+<<<<<<< ours
       "filename" : "Icon-App-60x60@3x.png",
+=======
+>>>>>>> theirs
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+<<<<<<< ours
       "filename" : "Icon-App-20x20@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
@@ -110,6 +133,8 @@
     },
     {
       "filename" : "ItunesArtwork@2x.png",
+=======
+>>>>>>> theirs
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
